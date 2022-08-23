@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.font_manager import FontProperties
 import os
+import numpy as np
 
 plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']
 plt.rcParams['axes.unicode_minus'] = False
@@ -55,8 +55,53 @@ dict_m=build_dict(month)
 dict_d=build_dict(day)
 dict_a=build_dict(admin_area)
 
-print(data.head(3))
+#analysis time
+
+
+# analysis administrative area
+total=int(len(data))
+house_burglary_amount = [i for i in dict_a.values()]
+area_name = [i for i in dict_a.keys()]
 target=data["administrative area"]
-plt.plot([i for i in dict_a.keys()],[i for i in dict_a.values()],label="admin_area")
+plt.plot(area_name,
+         house_burglary_amount,
+         '-.bo',
+         label="house_burglary_count")
+for i,j in zip(data["編號"],house_burglary_amount):
+    plt.text(i-1,j+0.5,
+             str(j),
+             ha='center',va='bottom',
+             fontsize=15)
 plt.legend()
-plt.show()
+plt.title("House Burglary Cases Count in Taipei City")
+plt.xticks(rotation=45)
+plt.close()
+
+fig, ax =plt.subplots(figsize=(6,3))
+
+def num_to_percent(num,gross=total):
+    """
+    number invert to percentage
+    :param num: part num
+    :param gross: total num
+    :return: float
+    """
+    absolute = int(np.round(num/100.*(gross)))
+    return absolute
+house_burglary_per=[]
+for i in house_burglary_amount:
+    house_burglary_per.append(num_to_percent(i))
+wedges, texts, autotexts = ax.pie(house_burglary_per,
+                                  labels=area_name,
+                                  autopct='%1.1f%%'
+                                  )
+
+ax.legend(wedges, area_name,
+          title="Area",
+          loc="center",
+          bbox_to_anchor=(1, 0, 0.5, 1))
+
+plt.setp(autotexts, size=8, weight="bold")
+
+ax.set_title("Administrative Area Percentage of House Burglary\nTotal: "+str(len(data)))
+plt.close()
