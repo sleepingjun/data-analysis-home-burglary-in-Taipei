@@ -12,7 +12,7 @@ data=pd.DataFrame(data)
 print(data.info())#colum information, count, dtype, memory usage
 print("data.index: ",data.index)
 print("data.col: ",data.columns)
-
+total=int(len(data))
 
 year=[]
 month=[]
@@ -27,7 +27,7 @@ data.insert(5,column="year",value=year)
 data.insert(6,column="month",value=month)
 data.insert(7,column="day",value=day)
 
-
+# split administrative areas
 admin_area=[]
 
 for i in data["發生地點"]:
@@ -49,17 +49,37 @@ def build_dict(col):
             d[i]+=1
         else:
             d[i]=1
-    return d
+
+    return dict((key,d[key]) for key in sorted(d.keys()))
+
+
+#analysis time, all
 dict_y=build_dict(year)
 dict_m=build_dict(month)
 dict_d=build_dict(day)
-dict_a=build_dict(admin_area)
 
-#analysis time
+fig, ax = plt.subplots(3,1)
+
+ax[0].plot([i for i in dict_y.keys()],
+           [i for i in dict_y.values()],
+           '.-',
+           label="year")
+ax[0].legend()
+ax[1].bar(dict_m.keys(),
+          dict_m.values(),
+          alpha=0.5,
+          label="month")
+ax[1].legend()
+ax[2].bar(dict_d.keys(),
+          dict_d.values(),
+          alpha=0.5,
+          label="date")
+ax[2].legend()
+plt.show()
 
 
 # analysis administrative area
-total=int(len(data))
+dict_a=build_dict(admin_area)
 house_burglary_amount = [i for i in dict_a.values()]
 area_name = [i for i in dict_a.keys()]
 target=data["administrative area"]
