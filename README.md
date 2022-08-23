@@ -1,5 +1,6 @@
 Recently, I have been trying to tidy up my past project, and then I will write a document to record.  
 I did this project 3-4 years age, and used excel to analyze; however, I lost my file. Therefore, I decide to rewrite it and use pycharm.  
+Thoughts: After finishing rewriting this project, I think using Excel or JupyterNotebook could be more convenient than using pycharm, when the dataset is not too big to open.  
 
 ## Context  
 * [Introduction](#introduction)  
