@@ -1,10 +1,10 @@
 Recently, I have been trying to tidy up my past project, and then I will write a document to record.  
-I did this project 3-4 years age, and used excel to analyze; however, I lost my file. Therefore, I decide to rewrite it.  
+I did this project 3-4 years age, and used excel to analyze; however, I lost my file. Therefore, I decide to rewrite it and use pycharm.  
 
 ## Context  
-* [Introduction](# introduction)  
-* [Target](# target)  
-* [Start](# start)  
+* [Introduction](#introduction)  
+* [Target](#target)  
+* [Start](#start)  
 
 
 ## Introduction  
@@ -27,8 +27,14 @@ A. Yes. Cases in 1 and 15 are more than other days. I suppose that is due to pay
 
 (Extra). I want to know more about the top3 dangerous districts, Zhongshan(中山), Shilin(士林),and Wanhua(萬華)  
 ![dangerous](https://github.com/sleepingjun/data-analysis-home-burglary-in-Taipei/blob/main/dangerous_district_time_analysis.png)  
+I found that the count of cases in Wan Hua and Zhong Shan are the same, so I used histgram to show cases in Zhong Shan.  
+
 ## Start  
 If you want to start this projet with me, you can do following steps:  
-1. Download taipei_house_steal.csv here or go to [opendata platform](https://data.gov.tw/dataset/130312)  
+1. Install envirnment using requirements.txt, or do it yourself.  
+**quick start** `import -r requirements.txt`  
+
+
+2. Download taipei_house_steal.csv here or go to [opendata platform](https://data.gov.tw/dataset/130312)  
 **Notice**: if you want to download open dataset yourself, please note that you need to transfer format to **UTF-8** or you won't be able to open file in python.
-2. See code in `main.py` and write by yourself. My suggest is to use JupyterNotebook when you need to check table and fig anytime.  
+3. See code in `main.py` and write by yourself. My suggest is to use JupyterNotebook when you need to check table and fig anytime.  
