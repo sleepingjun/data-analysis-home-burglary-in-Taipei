@@ -47,3 +47,4 @@ If you want to start this projet with me, you can do following steps:
 **Notice**: if you want to download open dataset yourself, please note that you need to transfer format to **UTF-8** or you won't be able to open file in python.  
 ![UTF8更改方式](https://github.com/sleepingjun/data-analysis-home-burglary-in-Taipei/blob/main/UTF-8%E6%A0%BC%E5%BC%8F.JPG)  
 3. See code in `main.py` and write by yourself. My suggest is to use JupyterNotebook when you need to check table and fig anytime.  
+Update(2022/9/20): Now you can see code and result immediately [there](https://github.com/sleepingjun/data-analysis-home-burglary-in-Taipei/blob/main/.ipynb_checkpoints/house_burgery_analysis-checkpoint.ipynb). It's my JupyterLab version code.
